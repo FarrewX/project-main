@@ -23,3 +23,4 @@ app.mount('#app')
 
 // npm install v-calendar@next @popperjs/core
 // npm i vue-chartjs chart.js
+// npm i firebase

@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
    <div class="slideshow-container">
  
@@ -42,6 +46,8 @@
    <span class="dot"></span>
    <span class="dot"></span>
  </div>
+
+
  </template>
  <script>
  export default {

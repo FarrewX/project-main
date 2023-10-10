@@ -22,7 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <style>
 
 .nav .nav-iner {
-    position: fixed;
+    position:absolute ;
     left: 0;
     top: 0;
     height: 80px;
