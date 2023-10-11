@@ -6,7 +6,7 @@
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
                 <RouterLink to="/review">Reviews</RouterLink>
-                <RouterLink to="/contect">Contect</RouterLink>
+                <RouterLink to="/contect">Contact</RouterLink>
             </div>
             <RouterLink style="font-size: medium;" to="/app">Planing</RouterLink>
             

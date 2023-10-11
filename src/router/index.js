@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: '/contect',
       name: 'contect',
-      component: () => import('../views/Contect.vue')
+      component: () => import('../views/Contact.vue')
     },
     {
       path: '/app',

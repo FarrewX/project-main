@@ -1,61 +1,135 @@
 <template>
-    <div>
-      <!-- แสดงคอมเม้นที่ถูกเพิ่มเข้ามา -->
-      <div v-for="(comment, index) in comments" :key="index">
-        <Comment :comment="comment" />
+
+ 
+
+
+
+  <div>
+    <div class="card">
+      <h2>Review ให้แอพของเรา</h2> <br>
+      <!-- แบบฟอร์มสำหรับเพิ่มรีวิวใหม่ -->
+      <form @submit.prevent="addReview">
+        <label for="rating">คะแนน: </label>
+        <input 
+          type="number" 
+          id="rating" 
+          v-model="newReview.rating" 
+          min="1"
+          max="5"
+          style="width: 40px;" />   
+        <label for="comment" style="height: 20px;">&ensp;&ensp;ความคิดเห็น: </label>
+
+        <textarea id="comment" v-model="newReview.comment"></textarea>
+        <br />
+        <button type="submit" class="btn buttonb">เพิ่มรีวิว</button>
+      </form> <br>
+
+      <div v-if="reviews.length === 0">
+        <p>ยังไม่มีรีวิว</p>
       </div>
-  
-      <!-- แบบฟอร์มสำหรับเพิ่มคอมเม้น -->
-      <form @submit.prevent="addComment">
-        <textarea v-model="newComment.content" placeholder="เพิ่มคอมเม้น"></textarea>
-        <button type="submit">ส่งคอมเม้น</button>
-      </form>
+
+
+    <h3>คะแนนรีวิว</h3> <br>
+    <div v-for="(review, index) in reviews" :key="index">
+      <p>คะแนน: {{ review.rating }} ดาว</p>
+      <p>ความคิดเห็น: {{ review.comment }}</p>
+        <button 
+          class="btn" 
+          style="
+            color:  #ffffff; 
+            background-color: #239516;
+            border: none;
+            padding: 1px 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            " 
+          @click="editReview(index)">แก้ไข
+        </button>&ensp;&ensp;
+
+        <button
+          style="
+            color:  #ffffff; 
+            background-color:  #d8360d;
+            border: none;
+            padding: 1px 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            " 
+            class="btn btn-outline-danger" 
+          @click="deleteReview(index)">ลบ
+        </button> <br> <br> <br>
+      
     </div>
-  </template>
-  
-  <script>
-  import firebase from 'firebase/app';
-  import 'firebase/auth';
-  import 'firebase/database';
-  
-  export default {
-    data() {
-      return {
-        comments: [], // เก็บคอมเม้นทั้งหมด
-        newComment: {
-          author: '', // ชื่อผู้เขียนคอมเม้น (สามารถใช้ Firebase Authentication)
-          content: '', // เนื้อหาคอมเม้น
-        },
-      };
-    },
-    components: {
-      Comment: () => import('../UX/comment.vue'), // นำเข้า component Comment
-    },
-    created() {
-      // โหลดคอมเม้นจาก Firebase Realtime Database ที่นี่
-      this.loadComments();
-    },
-    methods: {
-      // โหลดคอมเม้นจาก Firebase Realtime Database
-      loadComments() {
-        // ใช้ Firebase Realtime Database API เพื่อโหลดคอมเม้นจากฐานข้อมูลของคุณ
-        // โดยเรียกใช้ `this.comments.push(comment)` เมื่อคอมเม้นถูกโหลดสำเร็จ
+
+   
+  </div>
+</div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      reviews: JSON.parse(localStorage.getItem('reviews')) || [],
+      newReview: {
+        rating: 0,
+        comment: '',
       },
-      // เพิ่มคอมเม้นใหม่ลง Firebase Realtime Database
-      addComment() {
-        if (!this.newComment.content) return;
-  
-        // สร้างข้อมูลคอมเม้นใหม่ใน Firebase Realtime Database
-        const newCommentRef = firebase.database().ref('comments').push();
-        newCommentRef.set({
-          author: this.newComment.author || 'Anonymous',
-          content: this.newComment.content,
-        });
-  
-        // เคลียร์คอมเม้นใหม่
-        this.newComment.content = '';
-      },
+      // เพิ่มตัวแปรเพื่อเก็บรีวิวที่กำลังแก้ไข
+      editingReviewIndex: -1,
+    };
+  },
+  methods: {
+    addReview() {
+      // เพิ่มรีวิวใหม่หรือแก้ไขรีวิวที่มีอยู่
+      if (this.editingReviewIndex === -1) {
+        this.reviews.push({ ...this.newReview });
+      } else {
+        this.reviews[this.editingReviewIndex] = { ...this.newReview };
+        this.editingReviewIndex = -1; // รีเซ็ตเมื่อเสร็จแก้ไข
+      }
+      // รีเซ็ตค่าในฟอร์ม
+      this.newReview.rating = 0;
+      this.newReview.comment = '';
+      // บันทึกรีวิวใหม่ลงใน Local Storage
+      localStorage.setItem('reviews', JSON.stringify(this.reviews));
     },
-  };
-  </script>
-  
+    editReview(index) {
+      // แก้ไขรีวิวที่เลือก
+      this.newReview = { ...this.reviews[index] };
+      this.editingReviewIndex = index;
+    },
+    deleteReview(index) {
+      // ลบรีวิวที่เลือก
+      this.reviews.splice(index, 1);
+      // บันทึกรีวิวใหม่ลงใน Local Storage
+      localStorage.setItem('reviews', JSON.stringify(this.reviews));
+    },
+  },
+};
+</script>
+
+<style scoped>
+.card {
+display: block;
+text-align: center;
+}
+
+form {
+background-color: #f7f7f7;
+padding: 12px;
+border-radius: 4px;
+}
+
+.buttonb {
+background-color: #007bff;
+color: #fff;
+border: none;
+padding: 8px 16px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0056b3;
+}
+</style>

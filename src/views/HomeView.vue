@@ -45,8 +45,12 @@
    <span class="dot"></span> 
    <span class="dot"></span>
    <span class="dot"></span>
- </div>
+ </div> <br> <br>
 
+  <div style="padding-left: 150px;">
+    <h2>แพลนเที่ยวกันไม่ถูกละสิ</h2>
+    <span style="padding-left: 50px; font-size: 16px;">เรามีวิธีง่ายๆ<a style="font-size: 14px;" href="\app">Get Start</a>กันเล้ย</span>
+  </div>
 
  </template>
  <script>
