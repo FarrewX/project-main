@@ -1,4 +1,4 @@
-import './assets/main.css'
+//import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -7,9 +7,10 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+import "./firebase"
+
 import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
-
 
 const app = createApp(App)
 
@@ -21,6 +22,8 @@ app.use(VCalendar, {})
 app.mount('#app')
 
 
-// npm install v-calendar@next @popperjs/core
+// npm i v-calendar@next @popperjs/core
 // npm i vue-chartjs chart.js
 // npm i firebase
+// npm i vuex
+// npm i sweetalert2

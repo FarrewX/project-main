@@ -44,6 +44,11 @@ const router = createRouter({
       name: 'graph',
       component: () => import('../UX/GraphBar.vue')
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/Login.vue')
+    },
 
   ]
 })

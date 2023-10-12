@@ -14,12 +14,14 @@
     "chart.js": "^4.4.0",
     "firebase": "^10.4.0",
     "pinia": "^2.1.6",
+    "sweetalert2": "^11.7.32",
     "v-calendar": "^3.1.1",
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0",
     "vue-datepicker-ui": "^3.1.1",
     "vue-router": "^4.2.4",
-    "vueperslides": "^3.5.1"
+    "vueperslides": "^3.5.1",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
