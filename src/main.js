@@ -27,3 +27,8 @@ app.mount('#app')
 // npm i firebase
 // npm i vuex
 // npm i sweetalert2
+// npm i google-map
+// npm i map
+// npm i moment
+// npm i bootstrap
+// npm i bootstrap-vue

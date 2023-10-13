@@ -1,4 +1,5 @@
 <template>
+<div style="display: grid; justify-content: center; justify-items: center;">
   <div class="wrapper">
     <div class="title-text">
       <div class="title login">เข้าสู่ระบบ</div>
@@ -48,6 +49,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -118,11 +120,20 @@ export default {
     createUserWithEmailAndPassword(auth, this.form.email, this.form.password)
       .then(async (userCredential) => {
         await updateProfile(userCredential.user, { displayName: this.form.name });
-        this.$router.push("/").catch(() => {});
+        
       })
       .catch((error) => {
-        alert(error.message);
-      });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'สมัครสำเร็จ',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      Login_to;
+      this.$router.push("/").catch(() => {});
+      })
+      
   },
 
   async Login_to(event) {
@@ -134,7 +145,14 @@ export default {
       this.form.password
     )
     .then(() => {
-    this.$router.push("/").catch(() => {});
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'เข้าสู่ระบบสำเร็จ',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.$router.push("/").catch(() => {});
     })
     .catch((error) => {
       Swal.fire({
@@ -143,7 +161,8 @@ export default {
         footer: 'กรุณาตรวจสอบ อีเมล/รหัสผ่าน'
       })
     })
-  }
+  },
+  
   
 },
 

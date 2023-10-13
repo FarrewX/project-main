@@ -1,28 +1,60 @@
 <template>
     <div class="nav">
         <div class="nav-iner">
-            <div class="logo"><p>Travel Planed</p></div>
+            <div class="logo"><p>Travel Planed</p></div>           
             <div class="links">
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
                 <RouterLink to="/review">Reviews</RouterLink>
                 <RouterLink to="/contect">Contact</RouterLink>
             </div>
-            <RouterLink style="font-size: medium;" to="/app">Planing</RouterLink>
+            <RouterLink style="font-size: medium;" to="/planner">Planner</RouterLink>
             
-        </div><br><RouterLink style="font-size: small;" to="/login">Login</RouterLink>
+        </div><br><RouterLink style="font-size: small;" v-if="islogin === true" @click="logout">Logout</RouterLink>
+        <RouterLink style="font-size: small;" v-else to="/login" id="login">Login</RouterLink>
     </div>
 </template>
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import './Login.vue'
+import { getAuth, onAuthStateChanged, 
+  signInWithEmailAndPassword, signOut } from "firebase/auth";
+import '../assets/main.css'
+
+
+const islogin = true;
+export default {
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    async logout(event) {
+      event.preventDefault();
+      const auth = getAuth();
+      await signOut(auth); // ล็อคเอ้าท์ผู้ใช้
+      this.isLoggedIn = false; // อัปเดต isLoggedIn เป็น false
+      this.$router.push("/").catch(() => {}); // ไปยังหน้าหลักหลังจากล็อคเอ้าท์
+    }
+  },
+  created() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) =>{
+      if (user) {
+        this.$router.push("/").catch(() => {});
+      }
+    });
+  },
+};
 
 </script>
 
-<style>
+<style scoped>
 
 .nav .nav-iner {
-    position:absolute ;
+    position: absolute ;
     left: 0;
     top: 0;
     height: 80px;
@@ -32,7 +64,7 @@ import { RouterLink, RouterView } from 'vue-router'
     width: 100%;
     background-color: white;
     color: red;
-    padding: 40px 60px;
+    padding: 40px 60px; 
 }
 
 .nav-iner .links RouterLink{
@@ -49,177 +81,5 @@ import { RouterLink, RouterView } from 'vue-router'
     position: relative;
     font-weight: 700;
     font-size: 2em;
-}
-
-/* 
-general 
--------
-*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font: 15px/1.4 "Poppins", sans-serif;
-  color: #333;
-}
-
-
-#app {
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: red;
-  transition: 0.4s;
-  font-weight: 400;
-  margin: 0px 66px;
-  border-bottom: 1px solid transparent;
-  transition: .3s;
-  font-size: 18px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    border-color: red;
-  }
-}
-
-.app-modal .container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-input[type="text"] {
-  width: 100%;
-  height: 50px;
-  font: 15px/1.4 "Poppins", sans-serif;
-  padding: 15px;
-  background: #f3f3f3;
-  color: #333;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  transition: border 0.3s linear;
-}
-
-input[type="text"]:focus {
-  outline: none;
-  border: 1px solid #4ec5c1;
-}
-
-button {
-  cursor: pointer;
-  font: 15px/1.4 "Poppins", sans-serif;
-  color: #555;
-  transition: all 0.3s linear;
-}
-
-button:focus {
-  outline: none;
-}
-
-h1 {
-  font-size: 22px;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* 
-task 
-----
-*/
-.task {
-  background: #fff;
-  border-radius: 25px;
-  padding: 30px;
-  box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.1);
-}
-
-.title {
-  text-align: center;
-  margin: 0 0 20px;
-}
-
-.form {
-  position: relative;
-  margin: 0 0 30px;
-}
-
-.form button {
-  background: none;
-  border: none;
-  color: #4ec5c1;
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
-
-.clearBtns {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 20px;
-}
-
-.clearBtns button {
-  width: 100%;
-  background: #4ec5c1;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 0 5px;
-}
-
-.clearBtns button:hover {
-  background: #333;
-}
-
-.pendingTasks {
-  padding: 0 6px;
-}
-
-/* 
-task items
-----------
-*/
-.taskItems {
-  padding: 0 10px;
-}
-
-.taskItems li {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 20px;
-}
-
-.taskItems button {
-  background: none;
-  border: none;
-}
-
-.taskItems button:hover {
-  color: #4ec5c1;
-}
-
-.taskItems .toggle i {
-  margin: 0 10px 0 0;
-  font-size: 14px;
-}
-
-.taskItems .toggle.toggle-completed {
-  text-decoration:line-through;
 }
 </style>

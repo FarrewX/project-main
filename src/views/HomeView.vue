@@ -1,44 +1,44 @@
-<script setup>
-
-</script>
-
 <template>
-   <div class="slideshow-container">
+<div class="app">
+   <div class="slideshow-container" style="display: grid; justify-content: center; justify-items: center;">
  
      <div>
-       <div class="mySlides fade">
+       <div class="mySlides slide">
    <div class="numbertext">ภูเก็ต</div>
    <img src="../assets/image/Phuket.jpg" style="width:100%">
    </div>
    <div class="text"></div>
  </div>
  
- <div class="mySlides fade">
+ <div class="mySlides">
    <div class="numbertext">กรุงเทพ</div>
    <img src="../assets/image/bangkok.jpg" style="width:100%">
    <div class="text"></div>
  </div>
  
- <div class="mySlides fade">
+ <div class="mySlides">
    <div class="numbertext">ชลบุรี</div>
    <img src="../assets/image/chonburee.jpg" style="width:100%">
    <div class="text"></div>
    </div>
  
-   <div class="mySlides fade">
+   <div class="mySlides">
    <div class="numbertext">เชียงใหม่</div>
    <img src="../assets/image/changmai.jpg" style="width:100%">
    <div class="text"></div>
    </div>
  
-   <div class="mySlides fade">
+   <div class="mySlides">
    <div class="numbertext">ขอนแก่น</div>
    <img src="../assets/image/khonkhan.jpg" style="width:100%">
    <div class="text"></div>
    </div>
  
+   <div class="swiper-button-next"></div>
+   <div class="swiper-button-prev"></div>
  </div>
  <br>
+
  <div style="text-align:center">
    <span class="dot"></span> 
    <span class="dot"></span> 
@@ -47,12 +47,13 @@
    <span class="dot"></span>
  </div> <br> <br>
 
-  <div style="padding-left: 150px;">
-    <h2>แพลนเที่ยวกันไม่ถูกละสิ</h2>
-    <span style="padding-left: 50px; font-size: 16px;">เรามีวิธีง่ายๆ<a style="font-size: 14px;" href="\app">Get Start</a>กันเล้ย</span>
-  </div>
+  <div class="other">
+    <div style="display: grid;" >
 
- </template>
+    </div>
+  </div>
+</div>
+</template>
  <script>
  export default {
    mounted() {
@@ -73,7 +74,7 @@
        for (i = 0; i < dots.length; i++) {
          dots[i].className = dots[i].className.replace(" active", "");
        }
-       slides[slideIndex - 1].style.display = "block";
+       slides[slideIndex - 1].style.display = 'block';
        dots[slideIndex - 1].className += " active";
        setTimeout(showSlides, 2000); 
      }
@@ -127,7 +128,8 @@
  .active {
    background-color: #717171;
  }
- 
+
+
  /* Fading animation */
  .fade {
    animation-name: fade;
@@ -138,13 +140,33 @@
    from {opacity: .4} 
    to {opacity: 1}
  }
- 
- /* On smaller screens, decrease text size */
- @media only screen and (max-width: 300px) {
-   .text {font-size: 11px}
- }
- img{
+
+  img{
    width: 200px;
    height: 600px;
  }
+
+ /* ปรับขนาดของรูปภาพเมื่อหน้าจอมีความกว้างต่ำกว่า 768px (ไอแพต) */
+@media (max-width: 768px) {
+  img {
+    width: 800px;
+    height: 400px;
+   }
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ปรับขนาดของรูปภาพเมื่อหน้าจอมีความกว้างต่ำกว่า 576px (มือถือ) */
+@media (max-width: 576px) {
+   img {
+      width: 900px;
+      height: 170px;
+   }
+   .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
  </style>

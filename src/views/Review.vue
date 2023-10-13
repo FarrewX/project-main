@@ -1,22 +1,18 @@
 <template>
-
- 
-
-
-
-  <div>
+    <div>
     <div class="card">
       <h2>Review ให้แอพของเรา</h2> <br>
       <!-- แบบฟอร์มสำหรับเพิ่มรีวิวใหม่ -->
       <form @submit.prevent="addReview">
         <label for="rating">คะแนน: </label>
-        <input 
-          type="number" 
-          id="rating" 
-          v-model="newReview.rating" 
+        <input
+          type="number"
+          id="rating"
+          v-model="newReview.rating"
           min="1"
           max="5"
-          style="width: 40px;" />   
+          style="width: 40px; background-color: #e7e6e6; color: #000000; border:#000000; padding: 5px;"
+        />  
         <label for="comment" style="height: 20px;">&ensp;&ensp;ความคิดเห็น: </label>
 
         <textarea id="comment" v-model="newReview.comment"></textarea>
@@ -27,7 +23,7 @@
       <div v-if="reviews.length === 0">
         <p>ยังไม่มีรีวิว</p>
       </div>
-
+    
 
     <h3>คะแนนรีวิว</h3> <br>
     <div v-for="(review, index) in reviews" :key="index">
@@ -60,8 +56,6 @@
         </button> <br> <br> <br>
       
     </div>
-
-   
   </div>
 </div>
 </template>
@@ -131,5 +125,12 @@ cursor: pointer;
 
 button:hover {
 background-color: #0056b3;
+}
+
+input[type="number"] {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 4px;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="card"> <br>
-      <h1>Contact member gruop</h1> <br>
+      <h1>Contact group member</h1> <br>
       <ul>
         <li v-for="(people, index) in member" :key="index">
             <p>{{ people.name }}</p>
-            <a :href="people.FB"> <img src="../assets/icon/Facebook_Logo.png" alt=""></a>
+            <a :href="people.FB"><img src="../assets/icon/Facebook_Logo.png"></a>
             <p></p><br> <br>
         </li>
       </ul>
@@ -17,28 +17,28 @@
       return {
         member: [
           {
-            name: "1",
-            FB: "https://www.youtube.com/",
+            name: "นาย คฑาทอง ธรรมวรากรกุล 6504101308",
+            FB: "https://www.facebook.com/khatatong.thamwarakornkul",
           },
           {
-            name: "2",
-            FB: "https://www.youtube.com/",
+            name: "นาย จักรพันธุ์ แฉล้มนงนุช 6504101311",
+            FB: "https://www.facebook.com/chakkapun.chalamnongnuch",
           },
           {
-            name: "3",
-            FB: "https://www.youtube.com/",
+            name: "นาย เจษฎา พรมโสภา 6504101314",
+            FB: "https://www.facebook.com/profile.php?id=100006602448104",
           },
           {
-            name: "4",
-            FB: "https://www.youtube.com/",
+            name: "นาย ชนะภัย วีระ 6504101316",
+            FB: "https://www.facebook.com/Zeemilk3018",
           },
           {
-            name: "5",
-            FB: "https://www.youtube.com/",
+            name: "นาย ติณณภพ จำปาทอง 6504101330",
+            FB: "https://www.facebook.com/profile.php?id=100002846238221",
           },
           {
-            name: "6",
-            FB: "https://www.youtube.com/",
+            name: "นายพูนศักดิ์ กันแก้ว 6504101367",
+            FB: "https://www.facebook.com/profile.php?id=100010747273439",
           },
         ],
       };

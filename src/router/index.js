@@ -25,14 +25,9 @@ const router = createRouter({
       component: () => import('../views/Contact.vue')
     },
     {
-      path: '/app',
-      name: 'app',
+      path: '/planning',
+      name: 'planning',
       component: () => import('../components/Planning.vue')
-    },
-    {
-      path: '/users',
-      name: 'users',
-      component: () => import('../UX/user.vue')
     },
     {
       path: '/date',
@@ -48,6 +43,16 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('../views/Login.vue')
+    },
+    {
+      path: '/planner',
+      name: 'planner',
+      component: () => import('../views/Planner.vue')
+    },
+    {
+      path: '/weather',
+      name: 'weather',
+      component: () => import('../components/Weather.vue')
     },
 
   ]
