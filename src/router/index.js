@@ -30,11 +30,6 @@ const router = createRouter({
       component: () => import('../components/Planning.vue')
     },
     {
-      path: '/date',
-      name: 'date',
-      component: () => import('../UX/date.vue')
-    },
-    {
       path: '/graph',
       name: 'graph',
       component: () => import('../UX/GraphBar.vue')

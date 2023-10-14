@@ -43,3 +43,5 @@ menu_btn.addEventListener('click', function (){
 // npm i bootstrap-vue
 // npm install v-calendar@next @popperjs/core
 // npm install vue-frappe-chart
+// npm i vue-inline-calendar -S
+// npm install -D sass

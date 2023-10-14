@@ -209,7 +209,7 @@ export default {
   height: 100vh;
   display: block;
   background-color: rgba(235, 235, 235, 0.8);
-  padding-top: 20px;
+  padding-top: 40px;
   transition: 0.4s;
 }
 

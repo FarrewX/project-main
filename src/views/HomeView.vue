@@ -48,8 +48,21 @@
  </div> <br> <br>
 
   <div class="other">
-    <div style="display: grid;" >
-
+    <div>
+      <div id="app">
+        <div class="Container">
+          <h1>แนะนำเว็บดูสถานที่ท่องเที่ยว</h1>
+          <br>
+          <br>
+          <div class="circle-container" style="display: grid; justify-content: space-around;">
+            <a href="https://travel.trueid.net/detail/DerKpM90N71"><img src="../assets/image/trueID.jpg" alt="สถานที่เที่ยว" class="circle-image"></a>
+            <a href="https://www.wongnai.com/trips/best-thailand-attraction"><img src="../assets/image/Wongnai.jpg" alt="สถานที่เที่ยว" class="circle-image"></a>
+            <a href="https://www.tpartnerluggage.com/content/7119/10-%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%97%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B9%83%E0%B8%99%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%AD%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%B1%E0%B8%9A%E0%B9%82%E0%B8%A5%E0%B8%81">
+              <img src="../assets/image/Tpartner.jpg" alt="สถานที่เที่ยว" class="circle-image">
+            </a> 
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -93,6 +106,15 @@
    position: relative;
    margin: auto;
  }
+
+ .circle-image{
+  width: 300px;
+  height: 200px;
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
  
  /* Caption text */
  .text {
@@ -150,23 +172,34 @@
 @media (max-width: 768px) {
   img {
     width: 800px;
-    height: 400px;
+    height: 300px;
    }
   .dot {
     width: 10px;
     height: 10px;
   }
+  .circle-image{
+  width: 250px;
+  height: 200px;
+  border-radius: 200px;
+  }
 }
 
 /* ปรับขนาดของรูปภาพเมื่อหน้าจอมีความกว้างต่ำกว่า 576px (มือถือ) */
 @media (max-width: 576px) {
-   img {
+  img {
       width: 900px;
       height: 200px;
+      margin: 0px;
    }
-   .dot {
+  .dot {
     width: 10px;
     height: 10px;
+  }
+  .circle-image{
+    width: 200px;
+    height: 150px;
+    border-radius: 200px;
   }
 }
  </style>
