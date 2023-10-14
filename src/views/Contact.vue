@@ -3,7 +3,7 @@
       <h1>Contact group member</h1> <br>
       <ul>
         <li v-for="(people, index) in member" :key="index">
-            <p>{{ people.name }}</p>
+            <p style="display: block; text-align: center;">{{ people.name }}</p>
             <a :href="people.FB"><img src="../assets/icon/Facebook_Logo.png"></a>
             <p></p><br> <br>
         </li>

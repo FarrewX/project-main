@@ -27,8 +27,8 @@
 
     <h3>คะแนนรีวิว</h3> <br>
     <div v-for="(review, index) in reviews" :key="index">
-      <p>คะแนน: {{ review.rating }} ดาว</p>
-      <p>ความคิดเห็น: {{ review.comment }}</p>
+      <p style="display: block; text-align: center;">คะแนน: {{ review.rating }} ดาว</p>
+      <p style="display: block; text-align: center;">ความคิดเห็น: {{ review.comment }}</p>
         <button 
           class="btn" 
           style="
@@ -106,6 +106,7 @@ export default {
 .card {
 display: block;
 text-align: center;
+align-items: center;
 }
 
 form {

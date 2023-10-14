@@ -34,7 +34,7 @@ a,
 
 @media (hover: hover) {
   a:hover {
-    border-color: red;
+    border-color: rgb(255, 0, 0);
   }
 }
 
@@ -151,6 +151,11 @@ body {
   font-size: 18px;
 }
 
+.app-modal h1{
+  color: white;
+  margin-left: 20px;
+}
+
 .button {
  appearance: none;
  outline: none;
@@ -183,6 +188,7 @@ body {
  right: 0;
  bottom: 0;
  z-index: 98;
+ backdrop-filter: blur(2px);
 }
 
 .modal {
@@ -247,10 +253,13 @@ body {
 
 .display {
   display: flex;
+  flex-wrap: wrap;
+  padding-left: 65px;
 }
 
 .display .card{
 
+  flex-basis: calc(20% - 20px);
   background-color: #fdf8f8dc;
   min-width: 280px;
   max-width: 320px;
@@ -260,10 +269,15 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 5px;
   text-align: center;
+  border: 1px solid #ccc;
 }
 
 .card p{
   margin: 5px;
+  text-align: start;
+}
+.card h3{
+  color: red;
 }
 
 #go {
@@ -280,5 +294,6 @@ body {
   .display {
     flex-wrap: wrap;
   }
+
   
 }

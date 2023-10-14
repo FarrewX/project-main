@@ -1,23 +1,20 @@
 <template>
-  <TimezonePicker v-model="timezone" />
-  <VDatePicker mode="dateTime" v-model.range="range" :timezone="timezone" />
-  <!--  -->
+  <VCalendar :attributes="attributes" class="calender"/>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
-const timezone = ref('UTC');
-const range = {
-  start: Date(),
-  end: Date(),
-};
-
-const dragValue = ref(null);
-const selectDragAttribute = computed(() => ({
-  popover: {
-    visibility: 'hover',
-    isInteractive: false,
+const attributes = ref([
+  {
+    highlight: true,
+    dates: new Date(),
   },
-}));
+]);
 </script>
+
+<style scoped>
+.calender{
+  background-color: aqua;
+}
+</style>

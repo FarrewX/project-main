@@ -1,6 +1,6 @@
 <template>
 <div class="app">
-   <div class="slideshow-container" style="display: grid; justify-content: center; justify-items: center;">
+   <div class="slideshow-container" style="justify-content: center; justify-items: center;">
  
      <div>
        <div class="mySlides slide">
@@ -142,8 +142,8 @@
  }
 
   img{
-   width: 200px;
-   height: 600px;
+   width: 220px;
+   height: 620px;
  }
 
  /* ปรับขนาดของรูปภาพเมื่อหน้าจอมีความกว้างต่ำกว่า 768px (ไอแพต) */
@@ -162,7 +162,7 @@
 @media (max-width: 576px) {
    img {
       width: 900px;
-      height: 170px;
+      height: 200px;
    }
    .dot {
     width: 10px;

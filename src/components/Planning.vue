@@ -1,7 +1,7 @@
 <template>
   <div class="startplan">
     <div id="app-modal" class="app-modal">
-      <p>Start Your Plan</p>
+      <h1>Start Your Plan</h1>
       <button class="button" @click="showModal = true">+</button>
     </div>
    <transition name="fade" appear>
@@ -24,10 +24,10 @@
     </div>
    </transition>
    </div>
-   <h2>Planning</h2>
+   <h2>Planning List:</h2>
    <div class="display">
     <div class="card" v-for="(place, index) in places" :key="index">
-        <p>{{ place.placeName }}</p>
+        <h3>{{ place.placeName }}</h3>
         <p>Number of People: {{ place.people }}</p>
         <p>Budget: {{ place.cost }} $</p>
         <p>Stay for: {{ place.days }} days</p>
@@ -39,7 +39,6 @@
   
   <script>
   import Map from './Map.vue';
-  import '../assets/main.css'
   
   export default {
     name: "modal",

@@ -20,8 +20,8 @@ const router = createRouter({
       component: () => import('../views/Review.vue')
     },
     {
-      path: '/contect',
-      name: 'contect',
+      path: '/contact',
+      name: 'contact',
       component: () => import('../views/Contact.vue')
     },
     {
@@ -53,6 +53,11 @@ const router = createRouter({
       path: '/weather',
       name: 'weather',
       component: () => import('../components/Weather.vue')
+    },
+    {
+      path: '/chart',
+      name: 'chart',
+      component: () => import('../UX/chart.vue')
     },
 
   ]
