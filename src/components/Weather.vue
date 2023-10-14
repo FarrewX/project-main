@@ -29,7 +29,7 @@ export default {
     }
   },
   async created() {
-    const respone = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=aa50d4c6a393e82b9fc0e463acd1e4f9 //`)
+    const respone = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=aa50d4c6a393e82b9fc0e463acd1e4f9`)
     const weatherData = respone.data;
     this.temperature = weatherData.main.temp;
     this.description = weatherData.weather[0].description;

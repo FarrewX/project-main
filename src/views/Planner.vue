@@ -25,7 +25,7 @@ export default {
   components: {
     planner,
     Map,
-    VueInlineCalendar
+    VueInlineCalendar,
   },
   created() {
     const auth = getAuth();

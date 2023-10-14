@@ -1,3 +1,7 @@
+<script setup>
+import Weather from './WeatherView.vue';
+</script>
+
 <template>
 <div class="app">
    <div class="slideshow-container" style="justify-content: center; justify-items: center;">
@@ -64,6 +68,12 @@
         </div>
       </div>
     </div>
+  </div> <br> <br>
+
+
+  <div>
+    <h2>ก่อนจะไปเที่ยว มาเช็คสภาพอากาศกันก่อน</h2>
+    <Weather />
   </div>
 </div>
 </template>

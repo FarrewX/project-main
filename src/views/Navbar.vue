@@ -33,12 +33,10 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import './Login.vue'
-import { getAuth, onAuthStateChanged, 
-  signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged,  signOut } from "firebase/auth";
 import '../assets/main.css'
 
 
-const islogin = true;
 export default {
   data() {
     return {

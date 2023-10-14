@@ -1,8 +1,5 @@
 <script>
 import Weather from '../components/Weather.vue';
-
-import '../assets/styleWeather.css'
-
 export default {
   name: "App",
   components: {
@@ -26,7 +23,6 @@ export default {
 
 <template>
   <div class="header container p5">
-    <h1 class="mb-5">Weather App</h1>
     <div class="d-flex justify-content-center h-100">
       <div class="searchbar w-50 mx-2">
         <input type="text" class="input form-contral" v-model="city" placeholder="search some place">
@@ -38,8 +34,3 @@ export default {
     <Weather :city="city" v-if="showWeather"/>
   </div>
 </template>
-
-<style scoped>
-
-
-</style>
